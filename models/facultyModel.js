@@ -11,10 +11,10 @@ async function getAllFaculty() {
 
 async function addFaculty(facultyData) {
   try {
-    const { Name, Dept, Reg_no, FID } = facultyData;
+    const { Name, Dept, FID } = facultyData;
     const [result] = await connectionPool.execute(
-      'INSERT INTO faculty (FID, Name, Dept, Reg_no) VALUES (?, ?, ?, ?)',
-      [FID, Name, Dept, Reg_no]
+      'INSERT INTO faculty (FID, Name, Dept) VALUES (?, ?, ?, ?)',
+      [FID, Name, Dept]
       // ^^^ Corrected variable name here
     );
 
